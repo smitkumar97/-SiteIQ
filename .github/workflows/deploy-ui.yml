@@ -19,7 +19,7 @@ jobs:
           node-version: 18  # Use the Node.js version required for Angular
 
       - name: Install Dependencies
-        run: npm install
+        run: npm install --legagy peers deps
 
       - name: Build Angular App
         run: npm run build --prod
