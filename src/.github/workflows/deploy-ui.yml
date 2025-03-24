@@ -1,0 +1,32 @@
+name: Deploy Angular UI
+
+on:
+  push:
+    branches:
+      - main  # Runs on push to main branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set Up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18  # Use the Node.js version required for Angular
+
+      - name: Install Dependencies
+        run: npm install --legagy peers deps
+
+      - name: Build Angular App
+        run: npm run build --prod
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: dist/web-perf-iq
+          token: ${{ secrets.GITHUB_TOKEN }}
