@@ -21,12 +21,18 @@ app-root {
   --card-border: #e0e0e0; /* Subtle border for cards */
   --primary-color: #6c5ce7; /* Vibrant purple for primary elements */
   --text-color: #2d3436; /* Dark gray for text (high contrast) */
-  --button-bg: #0984e3; /* Bright blue for buttons */
-  --button-hover: #74b9ff; /* Lighter blue for hover effect */
+  --text-secondary: #666666;
+  --button-bg: #5c6bc0;
+  --button-hover: #3949ab;
   --button-disable: #b2bec3; /* Gray for disabled buttons */
   --input-bg: #ffffff; /* White for input backgrounds */
   --input-border: #dfe6e9; /* Light gray for input borders */
   --input-hover: #74b9ff; /* Light blue for input hover */
+  --success-color: #4CAF50;
+  --info-color: #2196F3;
+  --warning-color: #FF9800;
+  --purple-color: #9C27B0;
+  --row-hover: rgba(255, 255, 255, 0.05);
   --card-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; /* Soft shadow for cards */
 }
 
@@ -37,9 +43,9 @@ app-root {
   --card-border: #444; /* Dark border for cards */
   --primary-color: #bb86fc; /* Soft purple for primary elements */
   --text-color: #f8f9fa; /* Light text for contrast */
-  --button-bg: #0a84ff; /* Bright blue for buttons */
-  --button-hover: #4da6ff; /* Lighter blue for hover effect */
-  --button-disable: #555; /* Dark gray for disabled buttons */
+  --button-bg: #5c6bc0; /* Bright blue for buttons */
+  --button-hover: #3949ab; /* Lighter blue for hover effect */
+  --button-disable: #555555; /* Dark gray for disabled buttons */
   --input-bg: #333; /* Dark input background */
   --input-border: #555; /* Darker border for inputs */
   --input-hover: #4da6ff; /* Light blue for input hover */

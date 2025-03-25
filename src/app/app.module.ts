@@ -12,6 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
@@ -47,6 +48,7 @@ import { LoaderComponent } from './shared/loader/loader.component';
     MatInputModule,
     MatTableModule,
     MatIconModule,
+    MatExpansionModule,
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,

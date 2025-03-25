@@ -20,20 +20,59 @@
     <mat-card-title>Analysis Report</mat-card-title>
     <mat-card-content>
       <div class="score-container">
-        <p><strong>Performance:</strong> {{ reportData.performanceScore }}%</p>
-        <p><strong>SEO:</strong> {{ reportData.seoScore }}%</p>
-        <p><strong>Accessibility:</strong> {{ reportData.accessibilityScore
-          }}%</p>
-        <p><strong>Best Practices:</strong> {{ reportData.bestPracticesScore
-          }}%</p>
+        <div class="score-cards">
+          <div class="score-card performance">
+            <div class="score">{{ reportData.performanceScore || 0 }}</div>
+            <div class="label">Performance</div>
+          </div>
+          <div class="score-card seo">
+            <div class="score">{{ reportData.seoScore || 0 }}</div>
+            <div class="label">SEO</div>
+          </div>
+          <div class="score-card accessibility">
+            <div class="score">{{ reportData.accessibilityScore || 0 }}</div>
+            <div class="label">Accessibility</div>
+          </div>
+          <div class="score-card best-practices">
+            <div class="score">{{ reportData.bestPracticesScore || 0 }}</div>
+            <div class="label">Best Practices</div>
+          </div>
+        </div>
       </div>
-      <h3>AI Recommendations</h3>
-      <p class="ai-recommendations">{{ reportData.aiRecommendations }}</p>
+
+      <mat-accordion class="recommendations-accordion">
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h3>Performance Recommendations</h3>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="recommendation-content" [innerHTML]="getPerformanceRecommendations()"></div>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h3>Accessibility Recommendations</h3>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="recommendation-content" [innerHTML]="getAccessibilityRecommendations()"></div>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h3>Best Practices Recommendations</h3>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="recommendation-content" [innerHTML]="getBestPracticesRecommendations()"></div>
+        </mat-expansion-panel>
+      </mat-accordion>
     </mat-card-content>
   </mat-card>
 
   <mat-card class="history-card">
-    <mat-card-title>Report History</mat-card-title>
+    <mat-card-title><h4><strong>Report History</strong></h4></mat-card-title>
     <mat-card-content>
       <div class="table-wrapper">
         <table
@@ -47,6 +86,7 @@
               <th>URL</th>
               <th>Performance</th>
               <th>Date</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody class="table-body">
@@ -55,13 +95,17 @@
               <td>{{ item.url }}</td>
               <td>{{ item.performanceScore }}</td>
               <td>{{ item.createdAt | date: 'short' }}</td>
+              <td>
+                <button mat-icon-button (click)="viewReport(item)">
+                  <mat-icon>visibility</mat-icon>
+                </button>
+              </td>
             </tr>
           </tbody>
         </table>
       </div>
     </mat-card-content>
   </mat-card>
-
 </div>
 
 <app-loader [isLoading]="loading" loadingText></app-loader>
