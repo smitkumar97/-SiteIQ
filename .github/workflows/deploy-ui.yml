@@ -28,5 +28,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: dist/web-perf-iq
+          folder: ./dist/web-perf-iq
           token: ${{ secrets.GITHUB_TOKEN }}
