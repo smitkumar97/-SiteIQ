@@ -5,7 +5,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-report',
   templateUrl: './report.component.html',
-  styleUrls: ['./report.component.scss']
+  styleUrls: ['./report.component.scss'],
+  standalone: false
 })
 export class ReportComponent implements OnInit {
   url: string = '';

@@ -11,7 +11,8 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormControl, Validators } from
       useExisting: forwardRef(() => InputComponent),
       multi: true
     }
-  ]
+  ],
+  standalone: false
 })
 export class InputComponent implements ControlValueAccessor, OnInit {
   @Input() label: string = '';
