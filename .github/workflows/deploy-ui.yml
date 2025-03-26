@@ -25,7 +25,7 @@ jobs:
         run: npm ci
 
       - name: Build Angular App
-        run: ng build --configuration=production
+        run: ng build --configuration=production --base-href="/web-perf-iq/"
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
