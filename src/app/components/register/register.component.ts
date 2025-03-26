@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -15,9 +17,14 @@ export class RegisterComponent {
     confirmPassword: new FormControl('', Validators.required),
   });
 
+  constructor(private authService: AuthService, private router: Router) {}
+
   onRegister() {
     if (this.registerForm.valid) {
-      console.log('Form Submitted', this.registerForm.value);
+      this.authService.register(this.registerForm.value).subscribe(
+        () => this.router.navigate(['/login']),
+        (error) => console.error('Registration failed', error)
+      );
     } else {
       this.registerForm.markAllAsTouched();
     }
